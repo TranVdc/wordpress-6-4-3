@@ -6,10 +6,10 @@
     <link rel="stylesheet" href="<?php echo esc_url( get_stylesheet_uri() ); ?>" type="text/css" />
     <?php wp_head(); ?>
 </head>
-<body>
+<body <?php body_class(); ?>>
 <h1><?php bloginfo( 'name' ); ?></h1>
 <h2><?php bloginfo( 'description' ); ?></h2>
-
+<?php get_header(); ?>
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
     <h3><?php the_title(); ?></h3>
