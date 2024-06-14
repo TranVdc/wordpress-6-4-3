@@ -34,3 +34,16 @@ function themename_custom_logo_setup() {
 add_action( 'after_setup_theme', 'themename_custom_logo_setup' );
 
 add_theme_support( 'post-thumbnails' );
+
+
+// navigation menu
+function register_my_menus() {
+    register_nav_menus(
+        array(
+            'header-menu' => __( 'Header Menu' ),
+            'extra-menu' => __( 'Extra Menu' ),
+            'third-menu' => __( 'Third Menu' )
+        )
+    );
+}
+add_action( 'init', 'register_my_menus' );

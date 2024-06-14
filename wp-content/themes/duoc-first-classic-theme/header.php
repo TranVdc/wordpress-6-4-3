@@ -6,5 +6,21 @@ if ( has_custom_logo() ) {
 } else {
     echo '<h1>' . get_bloginfo('name') . '</h1>';
 }
+
+wp_nav_menu(
+    array(
+        'theme_location' => 'header-menu',
+        'container_class' => 'my_extra_menu_class'
+    )
+);
+
 ?>
 <img alt="" src="<?php header_image(); ?>" width="<?php echo absint( get_custom_header()->width ); ?>" height="<?php echo absint( get_custom_header()->height ); ?>">
+
+<?php
+wp_nav_menu(
+    array(
+        'theme_location' => 'extra-menu',
+        'container_class' => 'my_extra_menu_class'
+    )
+);
