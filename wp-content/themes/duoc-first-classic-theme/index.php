@@ -22,12 +22,12 @@
 
     <?php
     if ( get_next_posts_link() ) {
-        next_posts_link();
+        next_posts_link('Newer posts');
     }
     ?>
     <?php
     if ( get_previous_posts_link() ) {
-        previous_posts_link();
+        previous_posts_link('Older posts');
     }
     ?>
 
