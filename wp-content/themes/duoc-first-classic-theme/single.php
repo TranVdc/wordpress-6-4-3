@@ -1,5 +1,7 @@
 <?php
-echo 11;
+if ( has_post_format( 'gallery' ) ) {
+    echo 'This is the gallery format.';
+}
 // Start the Loop.
 while ( have_posts() ) : the_post();
 the_title();

@@ -47,3 +47,9 @@ function register_my_menus() {
     );
 }
 add_action( 'init', 'register_my_menus' );
+
+// post format
+function themename_post_formats_setup() {
+    add_theme_support( 'post-formats', array( 'aside', 'gallery' ) );
+}
+add_action( 'after_setup_theme', 'themename_post_formats_setup' );
