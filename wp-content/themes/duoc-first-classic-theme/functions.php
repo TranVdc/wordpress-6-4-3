@@ -112,7 +112,7 @@ class Foo_Widget extends WP_Widget {
         if ( ! empty( $title ) ) {
             echo $before_title . $title . $after_title;
         }
-        echo __( 'Hello, World!', 'text_domain' );
+        echo __( 'custom widget', 'text_domain' );
         echo $after_widget;
     }
     /**
@@ -159,3 +159,18 @@ function register_foo()
 {
     register_widget('Foo_Widget');
 }
+
+
+function wporg_custom_post_type() {
+    register_post_type('wporg_product',
+        array(
+            'labels'      => array(
+                'name'          => __('Products', 'textdomain'),
+                'singular_name' => __('Product', 'textdomain'),
+            ),
+            'public'      => true,
+            'has_archive' => true,
+        )
+    );
+}
+add_action('init', 'wporg_custom_post_type');
