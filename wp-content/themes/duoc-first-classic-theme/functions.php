@@ -53,3 +53,32 @@ function themename_post_formats_setup() {
     add_theme_support( 'post-formats', array( 'aside', 'gallery' ) );
 }
 add_action( 'after_setup_theme', 'themename_post_formats_setup' );
+
+
+// sidebar
+
+add_action('widgets_init', 'my_register_sidebars');
+function my_register_sidebars()
+{
+    /* Register the 'primary' sidebar. */
+    register_sidebar(
+        array(
+            'id' => 'primary',
+            'name' => __('Primary Sidebar'),
+            'description' => __('A short description of the sidebar.'),
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget' => '</div>',
+            'before_title' => '<h3 class="widget-title">',
+            'after_title' => '</h3>',
+        ),
+    );
+    register_sidebar( array(
+        'name'          => __( 'Second Sidebar', 'theme_name' ),
+        'id'            => 'sidebar-1',
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</aside>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+    /* Repeat register_sidebar() code for additional sidebars. */
+}
